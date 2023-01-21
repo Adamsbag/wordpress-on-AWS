@@ -3,11 +3,17 @@
 List of Components
 
 1- Create the VPC
+
 2- create internet gateway and attach it to vpc
+
 3- Create 4 Subnets -- 2 Public & 2 Private
+
 4- Create 3 Route Tables -- 1 Public & 2 Private
+
 5- Associate the Public RT to 2 Public Subnets & the 2 Private RT to 2 Private Subnets
+
 6- Create 2 Elastic IP and Associate them to the 2 Nat Gateway
+
 7- Create 2 Nat Gateway for the 2 private Subnets
 
 #### Remote State File Configuration
@@ -24,4 +30,44 @@ Refering at our last configuration, we can take these next steps to implement re
 
 2 - Update the provider.tf file by adding the Remote backend configuration code.
 
+            ###########         ###########
+
+                       ###########
+
+#### Backend
+
+### Route53 - Load Balancer - System Manager - ASG - Secrets Manager - RDS
+
+In the first part of this project, I made use of Self-made modules where I created all the components needed to provision the VPC and its sub-components.
+
+In this section, I will make use of open source modules which are modules that are created by the community and shared publicly. These modules are used to automate the provisioning and management of a wide variety of resources. Using open-source modules is easy and pretty straightforward.
+
+### Open Source Modules Used:
+
+- "terraform-aws-modules/security-group/aws"
+
+  Module called to provision the necessary secruity configuration to allow Inbound and outbound traffic.
+
+- "terraform-aws-modules/rds/aws"
+
+  Module used to provision the Database retaining the App server's data
+
+- "terraform-aws-modules/autoscaling/aws"
+
+  Used to provision the autoscaling group of App servers.
+
+- "terraform-aws-modules/acm/aws"
+
+  Creates the TLS/SSL certificate applying the security over HTTP.
+
+- "terraform-aws-modules/alb/aws"
+
+  Provision the ALB that receives the secured traffic from the Route53 and distribute the traffic through the ASG
+
+- "terraform-aws-modules/route53/aws//modules/records"
+
+  Provision the DNS record that map the domain name to the ASG Target group.
+
 # wordpress-on-AWS
+
+o
