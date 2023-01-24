@@ -40,7 +40,7 @@ Refering at our last configuration, we can take these next steps to implement re
 
 In the first part of this project, I made use of Self-made modules where I created all the components needed to provision the VPC and its sub-components.
 
-In this section, I will make use of open source modules which are modules that are created by the community and shared publicly. These modules are used to automate the provisioning and management of a wide variety of resources. Using open-source modules is easy and pretty straightforward.
+In this section, I will make use of open source modules which are modules that are created by the community and shared publicly. These modules are used to automate the provisioning and management of a wide variety of resources. They are a collection reusable resources across differents project. Using open-source modules is easy and pretty straightforward. To use them, you open a module resource and define the source as these following modules and adjust any argument that correspond to your outputs.
 
 ### Open Source Modules Used:
 
