@@ -52,6 +52,7 @@ module "autoscaling" {
   vpc_zone_identifier       = data.terraform_remote_state.vpc_network.outputs.private_subnet_id
   target_group_arns         = module.elb.target_group_arns
   force_delete              = true
+  depends_on                = [module.rds]
 
   launch_template_name        = var.main_var
   launch_template_description = "Launch template example"
